@@ -16,6 +16,9 @@ import QuizResults from "./pages/QuizResults";
 import CourseStudents from "./pages/CourseStudents";
 import ManageCourseContent from "./pages/ManageCourseContent";
 import Certificate from "./pages/Certificate";
+import CreateConference from "./pages/CreateConference";
+import Conferences from "./pages/Conferences";
+import ConferenceRoom from "./pages/ConferenceRoom";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +45,10 @@ const App = () => (
           <Route path="/quiz/:quizId" element={<TakeQuiz />} />
           <Route path="/quiz/:quizId/results" element={<QuizResults />} />
           <Route path="/certificate/:courseId" element={<Certificate />} />
+          <Route path="/teacher/create-conference" element={<CreateConference />} />
+          <Route path="/teacher/conferences" element={<Conferences />} />
+          <Route path="/conferences" element={<Conferences />} />
+          <Route path="/conference/:id" element={<ConferenceRoom />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Bell, Search, User, BookOpen, Plus, Moon, Sun } from "lucide-react";
+import { Bell, Search, User, BookOpen, Plus, Moon, Sun, Video } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
@@ -81,6 +81,12 @@ export const Navbar = () => {
                     Créer un cours
                   </Button>
                 </Link>
+                <Link to="/teacher/create-conference">
+                  <Button variant="ghost" className="gap-2">
+                    <Video className="h-4 w-4" />
+                    Créer une visio
+                  </Button>
+                </Link>
               </>
             ) : (
               <>
@@ -89,6 +95,12 @@ export const Navbar = () => {
                 </Link>
                 <Link to="/my-learning">
                   <Button variant="ghost">Mes Cours</Button>
+                </Link>
+                <Link to="/conferences">
+                  <Button variant="ghost" className="gap-2">
+                    <Video className="h-4 w-4" />
+                    Visioconférences
+                  </Button>
                 </Link>
               </>
             )}
@@ -134,13 +146,23 @@ export const Navbar = () => {
                 <DropdownMenuItem>Profil</DropdownMenuItem>
               </Link>
               {userRole?.toLowerCase() === "teacher" ? (
-                <Link to="/teacher/courses">
-                  <DropdownMenuItem>Mes Cours</DropdownMenuItem>
-                </Link>
+                <>
+                  <Link to="/teacher/courses">
+                    <DropdownMenuItem>Mes Cours</DropdownMenuItem>
+                  </Link>
+                  <Link to="/teacher/conferences">
+                    <DropdownMenuItem>Mes Visioconférences</DropdownMenuItem>
+                  </Link>
+                </>
               ) : (
-                <Link to="/my-learning">
-                  <DropdownMenuItem>Mes Cours</DropdownMenuItem>
-                </Link>
+                <>
+                  <Link to="/my-learning">
+                    <DropdownMenuItem>Mes Cours</DropdownMenuItem>
+                  </Link>
+                  <Link to="/conferences">
+                    <DropdownMenuItem>Visioconférences</DropdownMenuItem>
+                  </Link>
+                </>
               )}
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout}>Se déconnecter</DropdownMenuItem>
